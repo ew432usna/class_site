@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>My Webstore</title>
+<%= stylesheet_link_tag "main" %>
+</head>
+<body>
+<h1> Welcome to my webstore!</h1>
+<h3> Written by <%= @name %> </h3>
+
+<hr/>
+
+<table>
+<thead>
+<th>Name</th><th>Weight</th><th>Color</th>
+</thead>
+    <tbody>
+        <% @cats.each do |cat| %>
+        <tr>
+            <td><%= cat[:name] %></td>
+            <td><%= cat[:weight] %></td>
+            <td><%= cat[:color] %></td>
+        <%end %>
+    </tbody>
+</table>
+Visit my <%= link_to "about page", "/about"%>
+</body>
+</html>
