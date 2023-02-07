@@ -7,6 +7,15 @@
 <h1> Welcome to my webstore!</h1>
 <h3> Written by <%= @name %> </h3>
 
+<h2>Take the poll! What is your favorite color?</h2>
+
+<!-- HTML Form -->
+<form action="/poll" method="POST">
+    <label>Color:</label>
+    <input name="color" type="text">
+    <input type="submit">
+</form>
+
 <hr/>
 
 <table>

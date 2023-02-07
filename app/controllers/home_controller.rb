@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
     layout false
-    
+    # keep our form simple...
+    skip_before_action :verify_authenticity_token
+
+    def poll
+        @color = params[:color]
+    end
+
     def index
         @name = "John Donnal"
         @cats = [
