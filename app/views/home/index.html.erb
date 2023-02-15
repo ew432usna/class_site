@@ -9,12 +9,6 @@
 
 <h2>Take the poll! What is your favorite color?</h2>
 
-<!-- HTML Form -->
-<form action="/poll" method="POST">
-    <label>Color:</label>
-    <input name="color" type="text">
-    <input type="submit">
-</form>
 
 <hr/>
 
@@ -25,12 +19,24 @@
     <tbody>
         <% @cats.each do |cat| %>
         <tr>
-            <td><%= cat[:name] %></td>
-            <td><%= cat[:weight] %></td>
-            <td><%= cat[:color] %></td>
+            <td><%= cat.name %></td>
+            <td><%= cat.weight %></td>
+            <td><%= cat.color %></td>
         <%end %>
     </tbody>
 </table>
+<hr/>
+<h2>Add a new cat!</h2>
+
+<!-- HTML Form -->
+<form action="/cats" method="POST">
+    <input name="name" type="text" placeholder="cat name">
+    <input name="weight" type="number" placeholder="cat weight">
+    <input name="color" type="text" placeholder="color">
+    <input type="submit">
+</form>
+
+
 Visit my <%= link_to "about page", "/about"%>
 </body>
 </html>

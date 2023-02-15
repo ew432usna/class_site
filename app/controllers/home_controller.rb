@@ -3,29 +3,18 @@ class HomeController < ApplicationController
     # keep our form simple...
     skip_before_action :verify_authenticity_token
 
-    def poll
-        @color = params[:color]
+    def create
+        newcat = Cat.new(
+            name: params[:name],
+            weight: params[:weight],
+            color: params[:color])
+        newcat.save
+        redirect_to '/'
     end
 
     def index
         @name = "John Donnal"
-        @cats = [
-            {
-                name: 'alice',
-                weight: '5lb',
-                color: 'red'
-            },
-            {
-                name: 'bob',
-                weight: '7.1lb',
-                color: 'white'
-            },
-            {
-                name: 'charlie',
-                weight: '4.8lb',
-                color: 'yellow'
-            }
-        ]
+        @cats = Cat.all
     end
 
     def about
